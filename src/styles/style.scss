@@ -55,6 +55,21 @@ body {
 		transform: translateY(-10px);
 	}
 }
+
+@keyframes bounceIn {
+	0% {
+		transform: scale(0.1);
+		opacity: 0;
+	}
+	60% {
+		transform: scale(1.2);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
 .yellow {
 	color: #ff9c01;
 }
@@ -73,7 +88,7 @@ body {
 	@media (max-width: 500px) {
 		background-image: url("../img/back1-320.png");
 		background-size: 100% 100%;
-		height: 325px;
+		height: 360px;
 		margin-bottom: 20px;
 	}
 }
@@ -225,12 +240,20 @@ body {
 	}
 
 	&__lk:hover {
-		background-color: #dedede;
-		transition: 0.2s ease-in;
+		@media (min-width: 901px) {
+			background-color: #dedede;
+			transition: 0.2s ease-in;
+		}
 	}
 	&__lk svg path {
 		@media (max-width: 900px) {
 			fill: #fff;
+		}
+	}
+	&__lk svg:hover path {
+		@media (max-width: 499px) {
+			fill: red;
+			transition: 0.4s ease-out;
 		}
 	}
 	&__lk svg {
@@ -262,8 +285,10 @@ body {
 		}
 	}
 	&__invite-partner:hover {
-		background-color: #dedede;
-		transition: 0.2s ease-in;
+		@media (min-width: 500px) {
+			background-color: #dedede;
+			transition: 0.2s ease-in;
+		}
 	}
 
 	&__invite-partner svg {
@@ -272,6 +297,12 @@ body {
 	&__invite-partner svg path {
 		@media (max-width: 499px) {
 			fill: #fff;
+		}
+	}
+	&__invite-partner svg:hover path {
+		@media (max-width: 499px) {
+			fill: red;
+			transition: 0.4s ease-out;
 		}
 	}
 
@@ -395,12 +426,9 @@ body {
 			margin-bottom: 20px;
 		}
 	}
-	@media (max-width: 400px) {
+	@media (max-width: 500px) {
 		& {
-			background-image: url("../img/back2-320.png");
-			background-size: 100% 100%;
-			height: 400px;
-			margin-bottom: 20px;
+			height: 410px;
 		}
 	}
 
@@ -436,7 +464,7 @@ body {
 			max-width: 350px;
 			margin-top: 0;
 		}
-		@media (max-width: 500px) {
+		@media (max-width: 600px) {
 			max-width: 350px;
 			margin-top: 0;
 			order: 2;
@@ -456,7 +484,7 @@ body {
 		@media (max-width: 768px) {
 			margin-bottom: 5px;
 		}
-		@media (max-width: 500px) {
+		@media (max-width: 600px) {
 			font-size: 13px;
 		}
 	}
@@ -473,7 +501,7 @@ body {
 		@media (max-width: 768px) {
 			margin-bottom: 10px;
 		}
-		@media (max-width: 500px) {
+		@media (max-width: 600px) {
 			font-size: 13px;
 		}
 	}
@@ -492,7 +520,7 @@ body {
 		@media (max-width: 900px) {
 			justify-content: center;
 		}
-		@media (max-width: 500px) {
+		@media (max-width: 600px) {
 			justify-content: center;
 			flex-direction: column;
 		}
@@ -505,7 +533,7 @@ body {
 		@media (max-width: 900px) {
 			max-width: 220px;
 		}
-		@media (max-width: 500px) {
+		@media (max-width: 600px) {
 			order: 1;
 			max-width: 26%;
 			margin-bottom: 15px;
@@ -539,7 +567,7 @@ body {
 		@media (max-width: 768px) {
 			margin-bottom: 5px;
 		}
-		@media (max-width: 500px) {
+		@media (max-width: 600px) {
 			font-size: 13px;
 		}
 	}
@@ -550,7 +578,7 @@ body {
 		@media (max-width: 900px) {
 			font-size: 14px;
 		}
-		@media (max-width: 500px) {
+		@media (max-width: 600px) {
 			font-size: 13px;
 		}
 	}
@@ -622,16 +650,15 @@ body {
 	&__map {
 		position: relative;
 		max-width: 630px;
-		@media (min-width: 768px) {
-			-webkit-animation-name: bounce;
-			animation-name: bounce;
-			-webkit-animation-iteration-count: infinite;
-			animation-iteration-count: infinite;
-			-webkit-animation-duration: 5s;
-			animation-duration: 5s;
-		}
+
 		@media (max-width: 900px) {
-			max-width: 540;
+			max-width: 540px;
+		}
+		@media (min-width: 768px) {
+			-webkit-animation-name: bounceIn;
+			animation-name: bounceIn;
+			an: 3s;
+			animation-duration: 3s;
 		}
 	}
 
@@ -641,12 +668,28 @@ body {
 		left: 13%;
 		max-width: 20%;
 	}
+	&__fish:hover {
+		@media (min-width: 768px) {
+			animation-name: bounce;
+			-webkit-animation-name: bounce;
+			-webkit-animation-duration: 3s;
+			animation-duration: 3s;
+		}
+	}
 
 	&__chicken {
 		position: absolute;
 		top: 50%;
 		left: 36%;
 		max-width: 20%;
+	}
+	&__chicken:hover {
+		@media (min-width: 768px) {
+			animation-name: bounce;
+			-webkit-animation-name: bounce;
+			-webkit-animation-duration: 3s;
+			animation-duration: 3s;
+		}
 	}
 
 	&__glass {
@@ -655,12 +698,28 @@ body {
 		right: 24%;
 		max-width: 20%;
 	}
+	&__glass:hover {
+		@media (min-width: 768px) {
+			animation-name: bounce;
+			-webkit-animation-name: bounce;
+			-webkit-animation-duration: 2s;
+			animation-duration: 2s;
+		}
+	}
 
 	&__cake {
 		position: absolute;
 		top: 28%;
 		right: 15%;
 		max-width: 20%;
+	}
+	&__cake:hover {
+		@media (min-width: 768px) {
+			animation-name: bounce;
+			-webkit-animation-name: bounce;
+			-webkit-animation-duration: 3s;
+			animation-duration: 3s;
+		}
 	}
 }
 
@@ -685,7 +744,7 @@ body {
 			margin-bottom: 0;
 		}
 	}
-	@media (max-width: 320px) {
+	@media (max-width: 500px) {
 		& {
 			background-image: url("../img/back3-320.png");
 			background-size: 100% 100%;
@@ -701,6 +760,9 @@ body {
 		position: relative;
 		@media (max-width: 768px) {
 			padding-bottom: 50px;
+		}
+		@media (max-width: 500px) {
+			padding-bottom: 0px;
 		}
 	}
 
@@ -874,7 +936,8 @@ body {
 }
 
 .reviews {
-	background-image: url("../img/backPurpleTop.png");
+	/* background-image: url("../img/backPurpleTop.png"); */
+	background-image: url("../img/back4-1920.png");
 	background-size: 100% 100%;
 	height: 615px;
 	margin-bottom: 150px;
@@ -891,11 +954,11 @@ body {
 			margin-bottom: 30px;
 		}
 	}
-	@media (max-width: 320px) {
+	@media (max-width: 500px) {
 		& {
 			background-image: url("../img/back4-320.png");
 			background-size: 100% 100%;
-			height: 470px;
+			height: 420px;
 			margin-bottom: 20px;
 		}
 	}
@@ -1145,5 +1208,8 @@ body {
 
 	& .nav__contacts {
 		margin-bottom: 0;
+	}
+	&__icon {
+		max-width: 30px;
 	}
 }
